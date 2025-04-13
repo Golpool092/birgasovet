@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Топ-15 советов для биржи | MillsCome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .tips-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+        
+        .tip-card {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            counter-increment: tip-counter;
+        }
+        
+        .tip-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .tip-number {
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tip-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-left: 50px;
+        }
+        
+        .tip-content {
+            padding-left: 50px;
+            line-height: 1.6;
+        }
+        
+        .tip-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .ad-block {
+            background: linear-gradient(135deg, #f5f7fa, #e2e8f0);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px dashed var(--primary);
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .telegram-block {
+            background: linear-gradient(135deg, #0088cc, #005580);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .telegram-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .telegram-desc {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode {
+            --dark: #f8f9fa;
+            --light: #212529;
+            --primary: #3a86ff;
+            --secondary: #2667cc;
+            background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+            color: var(--dark);
+        }
+        
+        .dark-mode header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+        
+        .dark-mode .tips-container,
+        .dark-mode .ad-block {
+            background: #2d2d2d;
+            color: #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .dark-mode .tip-card {
+            border-bottom: 1px solid #444;
+        }
+        
+        .dark-mode .highlight {
+            background-color: rgba(58, 134, 255, 0.2);
+            color: var(--primary);
+        }
+        
+        .dark-mode .btn {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .dark-mode .theme-toggle {
+            background: rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .tip-number {
+                left: 0;
+                top: -5px;
+            }
+            
+            .tip-title, .tip-content {
+                padding-left: 0;
+                margin-left: 50px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switcher">
+        <button class="theme-toggle" id="themeToggle">
+            <span>🌙</span> Тёмная тема
+        </button>
+    </div>
+    
+    <header>
+        <div class="header-content container">
+            <div class="logo">MillsCome</div>
+            <h1 class="page-title">Топ-15 советов для успешной торговли на бирже</h1>
+            <p class="page-subtitle">Проверенные стратегии и рекомендации от профессиональных трейдеров. Узнайте, как минимизировать риски и увеличить прибыль.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="ad-block">
+            <p>Тут могла быть ваша реклама</p>
+        </div>
+        
+        <div class="tips-container">
+            <div class="tip-card">
+                <div class="tip-number">1</div>
+                <h2 class="tip-title">Определите свою стратегию</h2>
+                <div class="tip-content">
+                    <p>Прежде чем начать торговать, четко определите свою стратегию. Будете ли вы:</p>
+                    <ul>
+                        <li><span class="highlight">Дневным трейдером</span> - совершаете множество сделок в течение дня</li>
+                        <li><span class="highlight">Свинг-трейдером</span> - держите позиции несколько дней</li>
+                        <li><span class="highlight">Инвестором</span> - долгосрочные вложения на месяцы и годы</li>
+                    </ul>
+                    <p>Каждая стратегия требует разных подходов к анализу и управления рисками.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">2</div>
+                <h2 class="tip-title">Используйте стоп-лоссы</h2>
+                <div class="tip-content">
+                    <p>Всегда устанавливайте <span class="highlight">стоп-лосс</span> - уровень, при котором позиция автоматически закроется с убытком. Это защитит вас от больших потерь.</p>
+                    <p>Правило профессионалов: риск на одну сделку не должен превышать 1-2% от вашего капитала.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">3</div>
+                <h2 class="tip-title">Анализируйте рынок</h2>
+                <div class="tip-content">
+                    <p>Используйте два основных вида анализа:</p>
+                    <ul>
+                        <li><span class="highlight">Технический анализ</span> - изучение графиков и индикаторов</li>
+                        <li><span class="highlight">Фундаментальный анализ</span> - оценка финансовых показателей компаний и экономических факторов</li>
+                    </ul>
+                    <p>Сочетание обоих методов дает наилучшие результаты.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">4</div>
+                <h2 class="tip-title">Управляйте капиталом</h2>
+                <div class="tip-content">
+                    <p>Никогда не вкладывайте все средства в одну сделку или один актив. Диверсифицируйте портфель:</p>
+                    <ul>
+                        <li>Разделите капитал на несколько частей</li>
+                        <li>Инвестируйте в разные секторы экономики</li>
+                        <li>Используйте разные классы активов (акции, облигации, ETF)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">5</div>
+                <h2 class="tip-title">Ведите торговый журнал</h2>
+                <div class="tip-content">
+                    <p>Записывайте все свои сделки с указанием:</p>
+                    <ul>
+                        <li>Даты и времени входа</li>
+                        <li>Цены входа и выхода</li>
+                        <li>Причины открытия позиции</li>
+                        <li>Эмоционального состояния</li>
+                    </ul>
+                    <p>Анализ журнала поможет выявить ошибки и улучшить стратегию.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">6</div>
+                <h2 class="tip-title">Контролируйте эмоции</h2>
+                <div class="tip-content">
+                    <p>Эмоции - главный враг трейдера. Избегайте:</p>
+                    <ul>
+                        <li><span class="highlight">Жадности</span> - когда хочется получить больше прибыли и вы не фиксируете ее вовремя</li>
+                        <li><span class="highlight">Страха</span> - когда вы боитесь войти в сделку или преждевременно закрываете позицию</li>
+                    </ul>
+                    <p>Следуйте своему плану, а не сиюминутным импульсам.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">7</div>
+                <h2 class="tip-title">Изучайте экономический календарь</h2>
+                <div class="tip-content">
+                    <p>Важные экономические события (заседания ЦБ, публикация отчетов компаний) сильно влияют на рынки. Заранее узнавайте даты таких событий и будьте готовы к повышенной волатильности.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">8</div>
+                <h2 class="tip-title">Начинайте с демо-счета</h2>
+                <div class="tip-content">
+                    <p>Прежде чем торговать реальными деньгами, потренируйтесь на <span class="highlight">демо-счете</span>. Это позволит:</p>
+                    <ul>
+                        <li>Освоить торговый терминал</li>
+                        <li>Проверить свою стратегию</li>
+                        <li>Набраться опыта без риска потери капитала</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">9</div>
+                <h2 class="tip-title">Следите за трендами</h2>
+                <div class="tip-content">
+                    <p>"Тренд - твой друг" - золотое правило биржи. Определяйте направление тренда с помощью:</p>
+                    <ul>
+                        <li>Скользящих средних</li>
+                        <li>Линий тренда</li>
+                        <li>Индикаторов ADX или MACD</li>
+                    </ul>
+                    <p>Торгуйте преимущественно по тренду - это увеличивает вероятность успешных сделок.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">10</div>
+                <h2 class="tip-title">Используйте кредитное плечо с умом</h2>
+                <div class="tip-content">
+                    <p>Кредитное плечо позволяет увеличить потенциальную прибыль, но также и убытки. Начинающим рекомендуется:</p>
+                    <ul>
+                        <li>Начинать с минимального плеча</li>
+                        <li>Увеличивать его постепенно по мере накопления опыта</li>
+                        <li>Никогда не использовать максимальное доступное плечо</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">11</div>
+                <h2 class="tip-title">Следите за комиссиями</h2>
+                <div class="tip-content">
+                    <p>Высокие комиссии брокера могут "съесть" всю вашу прибыль. Перед началом торгов:</p>
+                    <ul>
+                        <li>Сравните тарифы разных брокеров</li>
+                        <li>Учитывайте все виды комиссий (за сделки, депозитарные, за вывод средств)</li>
+                        <li>Выбирайте тариф, соответствующий вашему стилю торговли</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">12</div>
+                <h2 class="tip-title">Не поддавайтесь FOMO</h2>
+                <div class="tip-content">
+                    <p>FOMO (Fear Of Missing Out) - страх упустить выгоду, заставляет совершать импульсные сделки. Помните:</p>
+                    <ul>
+                        <li>Рынок всегда дает новые возможности</li>
+                        <li>Лучше пропустить сделку, чем войти в нее без анализа</li>
+                        <li>Ажиотаж вокруг актива часто заканчивается резким падением</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">13</div>
+                <h2 class="tip-title">Изучайте психологию толпы</h2>
+                <div class="tip-content">
+                    <p>Рынки движутся эмоциями толпы. Научитесь распознавать:</p>
+                    <ul>
+                        <li>Периоды всеобщей эйфории (вероятность коррекции высока)</li>
+                        <li>Моменты паники (возможность купить активы дешево)</li>
+                    </ul>
+                    <p>Контрпримерное инвестирование часто приносит лучшие результаты.</p>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">14</div>
+                <h2 class="tip-title">Постоянно обучайтесь</h2>
+                <div class="tip-content">
+                    <p>Рынки постоянно меняются, и успешный трейдер должен адаптироваться. Регулярно:</p>
+                    <ul>
+                        <li>Читайте финансовую литературу</li>
+                        <li>Изучайте новые методы анализа</li>
+                        <li>Анализируйте ошибки других трейдеров</li>
+                        <li>Посещайте вебинары и курсы</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-number">15</div>
+                <h2 class="tip-title">Будьте терпеливы</h2>
+                <div class="tip-content">
+                    <p>Успех на бирже требует времени. Не ожидайте быстрых результатов:</p>
+                    <ul>
+                        <li>Формируйте реалистичные ожидания (10-20% годовых - отличный результат)</li>
+                        <li>Не пытайтесь "отбить" убытки одной крупной сделкой</li>
+                        <li>Развивайте дисциплину - это ключевое качество успешного трейдера</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ad-block">
+            <p>Тут могла быть ваша реклама</p>
+        </div>
+        
+        <div class="telegram-block">
+            <h3 class="telegram-title">Присоединяйтесь к нашему Telegram-каналу</h3>
+            <p class="telegram-desc">Ежедневные обзоры рынков, торговые идеи и эксклюзивные материалы</p>
+            <a href="https://t.me/MillsCome" class="btn" target="_blank">Перейти в канал</a>
+        </div>
+    </div>
+    
+    <footer style="text-align: center; padding: 2rem; color: var(--dark); font-size: 0.9rem; margin-top: 2rem;">
+        <p>© 2024 MillsCome. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Тёмная тема
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Проверяем сохранённую тему
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<span>☀️</span> Светлая тема';
+        }
+
+        // Обработчик переключения
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.innerHTML = '<span>☀️</span> Светлая тема';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.innerHTML = '<span>🌙</span> Тёмная тема';
+            }
+        });
+    </script>
+</body>
+</html>
